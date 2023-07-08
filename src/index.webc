@@ -1,4 +1,6 @@
 ---
+title: Home
+description: A Home page for 11ty-starter, written in WebC
 layout: layouts/layout.webc
 ---
 
@@ -150,4 +152,37 @@ layout: layouts/layout.webc
 </contrast-banner-container>
 
 <br/>
-<br />
+
+<normal-row>
+    <h2>Fonts</h2>
+    <p>This starter doesn't do anything fancy with fonts &mdash; it uses the <a
+        href="https://css-tricks.com/snippets/css/system-font-stack/" target="_offsite">system font
+        stack</a> from CSS Tricks. It <b>is</b> ready to add Google Fonts &mdash; there's a section
+        in the <code>src/_includes/layouts/base.njk</code> that's pre-prepared with a strategy for
+        non-blocking wen-fonts, just waiting for a url to be added.</p>
+</normal-row>
+
+<br/>
+
+<contrast-banner-container>
+    <h2>Favicon</h2>
+    <p>Also worth mentioning that favicons are provided, in <code>src/_includes/favicons</code>. You
+        will obviously want to change these, and we recommend using <a href="https://favicon.io/"
+        target="_offsite">favicon.io</a> to do so. If you end up with different filenames, change
+        the relevant part of the <code>src/_includes/layout/base.njk</code> layout.</p>
+</contrast-banner-container>
+
+<br/>
+
+<normal-row>
+    <h2>Other utilities</h2>
+    <p>Lastly, the starter includes:</p>
+    <ul>
+        <li>a utility <code>clearfix</code> WebC component</li>
+        <li>classes <code>as-h1</code> through <code>as-h6</code> which, when applied to a header
+            tag, adopt the format of the relevant header &mdash; because sometimes you need to
+            separate how it looks to how it's structured</li>
+    </ul> 
+</normal-row>
+
+<br/>

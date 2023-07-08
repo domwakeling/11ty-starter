@@ -2,7 +2,7 @@
     :src="src"
     :alt="alt"
     :loading="loading || 'lazy'"
-    :widths="[300, 600, 900, 1200, 1800, 2400]"
+    :widths="[800, 1200, 1600, 2400]"
     sizes="(min-width: 1420px) 1200px, (min-width: 900px) calc(78vw + 108px), calc(100vw - 20px)"
     class="full-width-image"
 ></new-11ty-image>

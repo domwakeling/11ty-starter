@@ -1,4 +1,6 @@
 ---
+title: About
+description: An About page for 11ty starter, written in Markdown
 layout: layouts/layout.webc
 ---
 

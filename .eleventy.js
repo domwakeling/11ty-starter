@@ -76,6 +76,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPairedShortcode("contrastBannerContainer", contrastBannerContainer);
     eleventyConfig.addPairedShortcode("contrastBannerRow", contrastBannerRow);
 
+    // copy from src/_includes/favicons to the root
+    eleventyConfig.addPassthroughCopy({ "src/_includes/favicons": "." });
+
     // because we're making a function we need to return the "normal" exports object
     return {
         markdownTemplateEngine: "njk",
