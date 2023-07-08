@@ -1,0 +1,5 @@
+<div class="container banner-contrast">
+    <div class="row">
+        <slot></slot>
+    </div>
+</div>

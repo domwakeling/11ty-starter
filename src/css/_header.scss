@@ -1,0 +1,93 @@
+header {
+    height: 6.0rem;
+    padding: 0.3rem 0;
+    margin-bottom: 1.0rem;
+    box-shadow: 0 0.4rem 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
+
+    #links-list {
+        display: inline;
+        position: relative;
+
+        @include for-tablet-down() {
+            display: none;
+        }
+
+        li {
+            display: inline;
+        }
+    }
+
+    .header-link {
+        text-decoration: none;
+        padding-left: 2.0rem;
+        font-size: 2.2rem;
+    }
+
+    #menu-responsive {
+        display: none;
+        margin-left: -1rem;
+
+        &.menu-show {
+
+            @include for-tablet-down () {
+                clear: both;
+                position: relative;
+                top: 0.25rem;
+                display: block;
+
+                ul {
+                    margin: 0px;
+                    width: 100vw;
+                    border-top: 1px solid $color_text_contrast;
+                    padding-left: 0;
+
+                    li {
+                        width: 100%;
+
+                        a {
+                            display: block;
+                            text-align: left;
+                            padding-top: 0.6rem;
+                            padding-bottom: 0.5rem;
+                            border-bottom: 1px solid $color_text_contrast;
+                            background-color: $color_principal;
+
+                            &:last-child {
+                                padding-bottom: 1.0rem;
+                                border-bottom: none !important;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .icon {
+        width: 40px;
+        padding: 1px 8px;
+        background-color: $color_principal;
+        border: 1px solid $color_text_contrast;
+        border-radius: 4px 4px 4px 4px;
+        float: right;
+        display: block;
+        margin-top: 0;
+
+        &:hover {
+            background-color: lighten($color_principal, 10%);
+        }
+
+        @include for-desktop-only() {
+            display: none;
+        }
+
+        .icon-bar {
+            background-color: $color_text_contrast;
+            border-radius: 2px 2px 2px 2px;
+            height: 2px;
+            margin: 6px 0;
+            width: 100%;
+        }
+    }
+}

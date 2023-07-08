@@ -1,0 +1,47 @@
+---
+title: Default
+description: Default description
+metacontent: []
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    {% for item in metacontent %}
+        <meta name="{{ item[0] }}" content="{{ item[1] }}">
+    {% endfor %}
+    <title>{{ title }} | Site</title>
+    {% renderTemplate "webc" %}
+    <style @raw="getBundle('css')" webc:keep></style>
+    {% endrenderTemplate %}
+    {# font stuff #}
+    {# <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="stylesheet"
+        media="print"
+        onload="this.onload=null;this.removeAttribute('media');"
+        href="your-google-font-href">
+    <noscript>
+        <link
+            rel="stylesheet"
+            href="your-google-font-href">
+    </noscript> #}
+    {# style stuff #}
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!-- <link rel="stylesheet" :href="getBundleFileUrl('css')"> -->
+    {# favicon stuff #}
+    {# <link rel="icon" type="image/x-icon" href="/favicon.ico" /> #}
+    {# <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> #}
+    {# <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> #}
+    {# <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> #}
+    {# <link rel="manifest" href="/site.webmanifest"> #}
+    {% renderTemplate "webc" %}
+    <script @raw="getBundle('js')" webc:keep></script>
+    {% endrenderTemplate %}
+</head>
+<body>{{ content | safe }}</body>
+</html>

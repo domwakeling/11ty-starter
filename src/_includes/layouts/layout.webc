@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+
+<site-header webc:nokeep></site-header>
+
+<main @raw="content"></main>
+
+<site-footer webc:nokeep></site-footer>

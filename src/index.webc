@@ -1,0 +1,153 @@
+---
+layout: layouts/layout.webc
+---
+
+<normal-row>
+    <full-width-image webc:nokeep
+        src="./src/images/welcome.jpg"
+        alt="welcome in orange on a grass background"
+        loading="eager"
+    ></full-width-image>
+    <p class="smaller">Photo by <a
+        href="https://unsplash.com/@nicosmit99?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nico
+        Smit</a> on <a
+        href="https://unsplash.com/photos/QnkzvFCxKrA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+</normal-row>
+
+
+<normal-row>
+    <h1>Another 11ty Starter</h1>
+    <p>Rather than being YABS* this starter concentrates on providing some easy wins for page
+        structure, responsive design and image handling. It uses WebC, Nunjucks and SCSS (swapping
+        out Nunjucks for Liquid should also work fine) and provides some useful tools for Markdown
+        that are demonstrated on the <a href="/about">About</a> page. Specifically the starter
+        provides:
+    </p>
+    <ul>
+        <li>header with logo and responsive navigation links</li>
+        <li>simple footer</li>
+        <li>responsive page layout</li>
+        <li>pre-built banners, either full-page or content-width</li>
+        <li>image handlers for full-width or half-width images (the latter in a grid)</li>
+        <li>a simple theme color system</li>
+    </ul>
+    <p class="smaller"><i>*Yet Another Blog Starter</i></p>
+</normal-row>
+
+<contrast-banner-container>
+    <h2>Responsive Page Structure</h2>
+    <p>The starter provides a responsive structure with two break-points; these are set out in
+        <code>src/css/_responsive.scss</code> and made available elsewhere in styling through
+        mixins. The sizes are:</p>
+    <ul>
+        <li>up to 600px (most phones)</li>
+        <li>600px to 899px (most tablets in portrait mode)</li>
+        <li>900px and above (everything else)</li>
+    </ul>
+    <p>Alongside those are five components for displaying content. These are all based on the idea
+        of the content being inside a <i>container</i> that fills the page with neat margins on
+        smaller screens, and is centred on the page for larger screens. The components are:</p>
+    <ul>
+        <li><code>normal-row</code> &mdash; standard content like the opening text above</li>
+        <li><code>banner-row</code> &mdash; a full-page-width banner in the principal theme color
+            with contrast text; the content is still held in a container within the banner; also
+            available as <code>contrast-banner-row</code> which is in the contrast theme color</li>
+        <li><code>banner-container</code> &mdash; a (slightly larger than) container-width banner
+            in the principal theme color; also available as <code>contrast-banner-container</code>.
+            On a narrower screen these will be indistinguishable from the row-width banners</li>
+    </ul>
+    <p>This section is a <code>contrast-banner-container</code> whilst the opening 'Another 11ty Starter'
+        section is a <code>normal-row</code></p>
+</contrast-banner-container>
+
+<br/>
+
+<normal-row>
+    <h2>Site Header</h2>
+    <p>The site header is provided as a <code>site-header</code> WebC component. The component
+        includes the necessary JavaScript to handle opening/closing the responsive menu, and is
+        styled in <code>src/css/_header.scss</code> (you could include that styling within the
+        component, but I've generally found it easier to work with SCSS as stand-alone files).</p>
+    <p>The links are imported into the header from a <code>navbar-link</code> WebC component &mdash;
+        they are <b>defined</b> in a script at the top of that component (if anyone knows how to
+        reliably make this component respect a file from 11ty's data cascade instead, I would love
+        to hear about it).</p>
+</normal-row>
+
+<br />
+
+<contrast-banner-container>
+    <h2>Site Footer</h2>
+    <p>The site footer is provided as a <code>site-footer</code> WebC component. This includes some
+        bundled styling. It's designed as a 3-column grid on wider displays, reducing to a 2-column
+        grid (with three cells) on narrower displays.</p>
+    <p>To ensure that the footer is always at <b>the foot</b> there's a style applied to the
+        <code>main</code> component in `src/css/_layout.scss` to give it a minimum height based on
+        device in use. If you change either the header or footer component you'll want to check or
+        amend the calculation accordingly.</p>
+</contrast-banner-container>
+
+<br/>
+
+<normal-row>
+    <h2>Images</h2>
+    <p>There are three WebC components included &mdash; <code>new-11ty-image</code> is the most
+        basic (and used for the logo image in the header) and then <code>full-width-image</code> and
+        <code>half-width-image</code> build on that.</p>
+    <p>All these are based on the <code>11ty-image</code> provided with <code>eleventy-image</code>.
+        It's recommended that an image intended to be displayed full-width is provided at least
+        2400px wide (it'll be re-sized) and a half-width at least 1200px wide.</p>
+    <p>Full-width images can be included 'at the root' inside any of the standard row- or
+        container-components. Half-width images need to be wrapped in a div with class
+        <code>half-width-image-container</code> <b>inside</b> a row- or container-component. This
+        provides a 2-column grid dropping to a 1-column grid for phone screens.</p>
+    <div class="half-width-image-container">
+        <half-width-image webc:nokeep
+            src="./src/images/design-mockup-1.jpg"
+            alt="Design mockup"
+        ></half-width-image>
+        <half-width-image webc:nokeep
+            src="./src/images/design-mockup-2.jpg"
+            alt="Design mockup"
+        ></half-width-image>
+        
+    </div>
+    <p class="smaller">Photos by <a
+            href="https://unsplash.com/@halacious?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hal
+            Gatewood</a> on <a
+            href="https://unsplash.com/backgrounds/apps/website?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </p>
+    <p>To be more SEO-friendly, the standard approach of hashing the file to provide a filename has
+        been replaced. Instead images are named <code>&lt;original-filename&gt;-&lt;width&gt;</code>.
+        My preference is for WEBP and PNG images, obviously you can change that.</p>
+</normal-row>
+
+<br/>
+
+<contrast-banner-container>
+    <h2>Colors</h2>
+    <p>Theme colors are defined in <code>src/css/_colors.scss</code>. They are:</p>
+    <ul>
+        <li><code>$color_principal</code></li>
+        <li><code>$color_contrast</code></li>
+        <li>
+            <code>$color_text</code> &mdash; by default this is a darker shade of
+            <code>$color_principal</code></li>
+        <li>
+            <code>$color_text_contrast</code> &mdash; by default this is <code>white</code></li>
+        <li><code>$color_link</code> &mdash; by default this is <code>$color_principal</code></li>
+    </ul>
+    <p>By default:</p>
+    <ul>
+        <li>any banner component(<code>banner-container</code>, <code>banner-row</code>) will
+            have text in <code>$color_text_contrast</code></li>
+        <li>any contrast banner (<code>contrast-banner-container</code>, <code>contrast-banner-row</code>)
+            will have text in <code>$color_principal</code></li>
+    </ul>
+    <p>Always check that color contrast respects accessibility requirements &mdash; this can be
+        checked using the inspector in Google Dev Tools, or using an
+        <a href="https://contrastchecker.com/" target="_offsite">online contrast checker</a>.</p>
+</contrast-banner-container>
+
+<br/>
+<br />

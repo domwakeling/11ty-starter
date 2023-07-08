@@ -1,0 +1,22 @@
+<new-11ty-image
+    :src="src"
+    :alt="alt"
+    :loading="loading || 'lazy'"
+    :widths="[400, 600, 800, 1200]" 
+    sizes="
+        (min-width: 1420px) 595px,
+        (min-width: 900px) calc(39vw + 49px),
+        (min-width: 600px) calc(50vw - 15px),
+        calc(100vw - 20px)" 
+    class="half-width-image"
+></new-11ty-image>
+
+<style>
+    .half-width-image {
+        width: 100%;
+        height: auto;
+        float: left;
+        box-shadow: 0 0 0.75rem lightgray;
+        border-radius: 0.8rem;
+    }
+</style>

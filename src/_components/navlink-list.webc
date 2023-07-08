@@ -1,0 +1,16 @@
+<script webc:setup>
+    const links = [
+        {
+            "url": "/",
+            "text": "Home"
+        },
+        {
+            "url": "/about",
+            "text": "About"
+        }
+    ]
+</script>
+
+<li webc:for="link of links">
+    <a :href="link.url" @text="link.text" class="header-link"></a>
+</li>

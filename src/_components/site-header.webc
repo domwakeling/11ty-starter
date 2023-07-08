@@ -1,0 +1,52 @@
+<script>
+    // hide/show the menu when menu-responsive is available; document click removes the menu;
+    // stopPropagation() prevents the click event propagating up to document from the menu button
+
+    window.onload = () => {
+        const menu = document.getElementById('menu-responsive');
+        const btn = document.querySelector('button.icon');
+
+        btn.addEventListener('click', function(event) {
+            event.stopPropagation()
+            if (menu.classList.contains('menu-show')) {
+                menu.classList.remove('menu-show');
+            } else {
+                menu.classList.add('menu-show');
+            }
+        });
+        
+        document.onclick = function () {
+            menu.classList.remove('menu-show');
+        }
+    }
+
+</script>
+
+<header class="banner">
+    <nav class="container">
+        <div class="row">
+            <button class="icon" aria-label="menu">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+            </button>
+            <new-11ty-image
+                :widths="[200, 400]"
+                sizes="200px"
+                loading="eager"
+                src="./src/images/header-logo.png"
+                alt="Website logo"
+                style="width: 200px; height: 50px; float: left; position: relative; bottom: 0.5rem"
+            >
+            </new-11ty-image>
+            <ul id="links-list">
+                <navlink-list webc:nokeep></navlink-list>
+            </ul>
+            <div id="menu-responsive">
+                <ul>
+                    <navlink-list webc:nokeep></navlink-list>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,32 @@
+<script webc:type="render" webc:is="template">
+
+    const Image = require("@11ty/eleventy-img");
+    const path = require("path");
+
+    module.exports = async function() {    
+        let metadata = await Image(this.src, {
+            widths: this.widths,
+            formats: ["webp", "png"],
+            urlPath: "/images/",
+            outputDir: "_site/images/",
+            filenameFormat: function (id, src, width, format, options) {
+                const extension = path.extname(src);
+                const name = path.basename(src, extension);
+
+                return `${name}-${width}w.${format}`;
+            }
+        });
+
+        let imageAttributes = {
+            alt: this.alt,
+            sizes: this.sizes,
+            loading: this.loading || "lazy",
+            decoding: "async",
+            class: this.class || "",
+            style: this.style || ""
+        };
+
+        // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+        return Image.generateHTML(metadata, imageAttributes);
+    }
+</script>

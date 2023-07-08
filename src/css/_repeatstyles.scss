@@ -1,0 +1,79 @@
+@mixin grey-box-shadow {
+    box-shadow: 0 0 0.75rem lightgray;
+}
+
+@mixin for-even-cards {
+    @include for-tablet-only() {
+        &:nth-child(4n+3) {
+            @content;
+        }
+        &:nth-child(4n+2) {
+            @content;
+        }
+    }
+    @include for-phone-only() {
+        &:nth-child(even) {
+            @content;
+        }
+    }
+    @include for-desktop-only() {
+        &:nth-child(even) {
+            @content;
+        }
+    }
+}
+
+@mixin for-odd-cards {
+    @include for-tablet-only() {
+        &:nth-child(4n+1) {
+            @content;
+        }
+
+        &:nth-child(4n+4) {
+            @content;
+        }
+    }
+
+    @include for-phone-only() {
+        &:nth-child(odd) {
+            @content;
+        }
+    }
+
+    @include for-desktop-only() {
+        &:nth-child(odd) {
+            @content;
+        }
+    }
+}
+
+@mixin blue-case-study {
+    border: 1px solid $color_principal;
+    border-radius: 0.75rem;
+    background-color: $color_principal;
+    color: $color_text_contrast !important;
+    h1, h2, h3, h4, h5, h6 {
+        color: $color_text_contrast !important;
+        text-decoration-color: $color_contrast !important;
+    }
+}
+
+@mixin yellow-case-study {
+border: 1px solid $color_contrast;
+    border-radius: 0.75rem;
+    background-color: $color_contrast;
+    color: $color_text !important;
+    h1, h2, h3, h4, h5, h6 {
+        color: $color_text !important;
+        text-decoration-color: $color_principal !important;
+    }
+}
+
+@mixin blue-background-text-lozenge {
+    background-color: $color_principal;
+    color: $color_text_contrast !important;
+    display: inline-block;
+    padding: 0.3rem 1.2rem 0.8rem 1.0rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}

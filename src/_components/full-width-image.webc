@@ -1,0 +1,16 @@
+<new-11ty-image
+    :src="src"
+    :alt="alt"
+    :loading="loading || 'lazy'"
+    :widths="[300, 600, 900, 1200, 1800, 2400]"
+    sizes="(min-width: 1420px) 1200px, (min-width: 900px) calc(78vw + 108px), calc(100vw - 20px)"
+    class="full-width-image"
+></new-11ty-image>
+
+<style>
+    .full-width-image {
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 0.75rem lightgray;
+    }
+</style>

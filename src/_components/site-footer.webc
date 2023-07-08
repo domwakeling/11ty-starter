@@ -1,0 +1,63 @@
+<!-- site-footer.webc -->
+<script webc:setup>
+    function copyrightYear() {
+        return year = new Date().getFullYear();
+    }
+</script>
+
+<clearfix></clearfix>
+<footer class="banner-contrast">
+    <div class="container">
+        <div class="row smaller">
+            <div>
+                <h2 class="as-h6 underlined">COPYRIGHT</h2>
+                <br />
+                <div webc:type="11ty" 11ty:type="njk">
+                    &copy;{% if copyrightYear() > 2023 %}2023&mdash;{% endif %}{{ copyrightYear() }}
+                    your-name-here
+                </div>
+                <br />
+            </div>
+            <div id="right-pane">
+                <h2 class="as-h6 underlined">LEGAL STUFF</h2>
+                <br />
+                your-info-here
+            </div>
+            <div>
+                <h2 class="as-h6 underlined">CONTACT</h2>
+                <br />
+                <a href="mailto:dom@dolwensolutions.com" class="footer-email">
+                    dom@dolwensolutions.com
+                </a>
+                <br />
+            </div>
+        </div>
+    </div>
+    <clearfix></clearfix>
+    <br/>
+</footer>
+
+<style>
+    footer {
+        border-top: 1px solid darkgray;
+    }
+    footer > .container > .row.smaller {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 650px) {
+        footer > .container > .row.smaller {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    h2.as-h6.underlined {
+        display: inline-block;
+        border-bottom: 1px solid white;
+        padding-bottom: 0.25rem;
+        margin-bottom: 1.0rem;
+    }
+    .footer-email {
+        text-decoration: none;
+        overflow-wrap: break-all;
+    }
+</style>
