@@ -146,9 +146,11 @@ layout: layouts/layout.webc
         <li>any contrast banner (<code>contrast-banner-container</code>, <code>contrast-banner-row</code>)
             will have text in <code>$color_principal</code></li>
     </ul>
-    <p>Always check that color contrast respects accessibility requirements &mdash; this can be
-        checked using the inspector in Google Dev Tools, or using an
-        <a href="https://contrastchecker.com/" target="_offsite">online contrast checker</a>.</p>
+    <p>Always check that color contrast respects accessibility requirements. This starter includes
+        the <code>a11ycolor</code> npm package and a `utils/colors/js` file which can be used from
+        the command-line to get text colors (see the README). You can also check contrast live on the
+        browser with Google Dev Tools, or using an <a href="https://contrastchecker.com/"
+        target="_offsite">online contrast checker</a>.</p>
 </contrast-banner-container>
 
 <br/>

@@ -131,5 +131,5 @@ code {
     background-color: #ddd;
     padding: 0.2rem 0.5rem 0.35rem;
     border-radius: 0.25rem;
-    color: $color_principal;
+    color: darken($color_principal, 5%);
 }
