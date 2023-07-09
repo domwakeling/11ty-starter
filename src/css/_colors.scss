@@ -1,6 +1,7 @@
 // $color_principal: #265A66;
 $color_principal: #038766;
-$color_contrast: #9AD8E6;
+// $color_contrast: #9AD8E6;
+$color_contrast: desaturate(lighten(#FF961F, 10%), 10%);
 $color_text: darken($color_principal, 15%);
 $color_text_contrast: white;
 $color_link: $color_principal;

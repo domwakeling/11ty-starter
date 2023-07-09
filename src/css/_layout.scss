@@ -59,6 +59,7 @@
     @include for-desktop-only() {
         padding-left: 1.0rem;
         padding-right: 1.0rem;
+        border-radius: 0.3rem;
         width: calc(90% + 2.0rem);
         max-width: calc(1200px + 2.0rem);
     }
