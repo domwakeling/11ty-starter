@@ -10,7 +10,10 @@
     "build": "eleventy",
     "clean": "rimraf _site && rimraf .cache"
   },
-  "keywords": [],
+  "keywords": [
+    "11ty",
+    "eleventy"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
