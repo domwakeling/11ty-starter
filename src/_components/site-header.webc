@@ -23,6 +23,7 @@
 </script>
 
 <header class="banner">
+    <a class="skip-link" href='#main'>Skip to content</a>
     <nav class="container">
         <div class="row">
             <button class="icon" aria-label="menu">
