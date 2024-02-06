@@ -3,6 +3,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 const sass = require("sass");
 const path = require("path");
+const CleanCSS = require("clean-css");
 
 const {
     bannerContainer,
@@ -64,7 +65,8 @@ module.exports = function(eleventyConfig) {
             this.addDependencies(inputPath, result.loadedUrls);
 
             return async () => {
-                return result.css;
+                // result.css contains the css, send to an instance of CleanCSS to minify;
+                return new CleanCSS({}).minify(result.css).styles;
             };
         },
     });
